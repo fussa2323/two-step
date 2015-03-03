@@ -2,7 +2,7 @@
 
 $cndir = "make_data/new_comp_cn";
 $tmp = "data.tmp";
-$model = "ContextModel/Semmodel";
+$model = "ContextModel/Semmodel_csjnrd";
 
 #open(TMP,">$tmp");
 
@@ -30,10 +30,10 @@ while($line_num >= $line_cnt){
 		$line = $_;
 		@feature = split(/\t/,$line);
 		$feature[6] =~ s/\n//;
-		
+
 		#今のCS中のヌル遷移を保存しておく
 		@null = ();
-		
+
 		#すでに正しいor訂正した行は無視しますよ
 		if($cnt > 0){
 			$cnt--;
@@ -44,7 +44,7 @@ while($line_num >= $line_cnt){
 			print TMP "$feature[0]\t$feature[1]\t$feature[2]\t$feature[3]\t$feature[4]\t$feature[5]\n";
 			next;
 		}
-		
+
 		#ここからはまだ見てないところ，($line_cnt)行目以降
 		if($line eq "\n"){ #改行のときはそのまま改行
 			print TMP "\n";
